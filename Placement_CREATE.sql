@@ -10,7 +10,7 @@ CREATE TABLE IF NOT EXISTS public.placement
     CONSTRAINT fk_placement_warehouse FOREIGN KEY (warhouse_number)
         REFERENCES public."Warhouse" (warheouse_number) MATCH SIMPLE
         ON UPDATE CASCADE
-        ON DELETE RESTRICT
+        ON DELETE CASCADE
 )
 
 TABLESPACE pg_default;
@@ -21,4 +21,5 @@ ALTER TABLE IF EXISTS public.placement
 CREATE INDEX IF NOT EXISTS fki_fk_placement_warehouse
     ON public.placement USING btree
     (warhouse_number ASC NULLS LAST)
+
 ;
